@@ -19,10 +19,11 @@
 
 <script>
 export default {
-  data() {
-    return {
-      videos: this.$store.state.videos
-    };
+  name: "home",
+  computed: {
+    videos() {
+      return this.$store.state.videos;
+    }
   }
 };
 </script>

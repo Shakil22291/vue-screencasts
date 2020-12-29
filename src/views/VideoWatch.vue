@@ -26,7 +26,9 @@ export default {
   },
   computed: {
     video() {
-      return this.$store.state.videos.find((video) => video.id == this.id);
+      return (
+        this.$store.state.videos.find((video) => video.id == this.id) || {}
+      );
     },
     playerOptions() {
       return {
@@ -37,7 +39,7 @@ export default {
         sources: [
           {
             type: "video/mp4",
-            src: this.video.videoUrl
+            src: this.video.video_url
           }
         ],
         poster: this.video.thumbnail
