@@ -9,6 +9,9 @@
             <div>
               <h3>{{ video.name }}</h3>
               <div v-html="video.description"></div>
+              <span v-for="tag_id in video.tag_ids" :key="tag_id">
+                <button class="tag-button">{{ getTag(tag_id).name }}</button>
+              </span>
             </div>
           </div>
         </router-link>
@@ -18,11 +21,16 @@
 </template>
 
 <script>
+import { mapState, mapGetters } from "vuex";
 export default {
   name: "home",
   computed: {
-    videos() {
-      return this.$store.state.videos;
+    ...mapState(["videos", "tags"]),
+    ...mapGetters(['getTag'])
+  },
+  methods: {
+    getTag(tag_id) {
+      return this.tags.find(t => t.id == tag_id);
     }
   }
 };
