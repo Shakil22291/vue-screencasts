@@ -1,8 +1,10 @@
 <template>
   <div>
-    <h1>Tag video List {{ tag.name }}</h1>
-    <div v-for="video in videosOnTag" :key="video.id">
-      <VideoListVideo :video="video"></VideoListVideo>
+    <h1 class="d-flex mb-4 justify-center display-2">Tag video List {{ tag.name }}</h1>
+    <div class="d-flex justify-center flex-wrap">
+      <div v-for="video in videosOnTag" :key="video.id">
+        <VideoListVideo :video="video"></VideoListVideo>
+      </div>
     </div>
   </div>
 </template>

@@ -1,7 +1,7 @@
 <template>
   <div class="home">
-    <h1>Videos</h1>
-    <div class="video-container">
+    <h1 class="display-2 ma-4 d-flex justify-center"> All Videos</h1>
+    <div class="d-flex flex-wrap justify-center">
       <div v-for="video in videos" :key="video.name">
         <VideoListVideo :video="video"></VideoListVideo>
       </div>
@@ -20,21 +20,3 @@ export default {
   }
 };
 </script>
-
-<style scoped lang="scss">
-.video-container {
-  .video-box {
-    border: 1px solid black;
-    border-radius: 10px;
-    margin: 10px;
-    padding: 10px;
-    text-align: left;
-    display: flex;
-    justify-content: flex-start;
-    img {
-      width: 200px;
-      padding: 10px;
-    }
-  }
-}
-</style>
