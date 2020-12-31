@@ -1,8 +1,32 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <router-view></router-view>
-  </div>
+  <v-app>
+    <v-app-bar app color="primary" dark>
+      <div class="d-flex align-center">
+        <v-img
+          alt="Vuetify Logo"
+          class="shrink mr-2"
+          contain
+          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
+          transition="scale-transition"
+          width="40"
+        />
+        <span>Vue screencasts</span>
+      </div>
+
+      <v-spacer></v-spacer>
+
+      <v-btn text>
+        <span class="mr-2">Login</span>
+        <v-icon>mdi-open-in-new</v-icon>
+      </v-btn>
+    </v-app-bar>
+
+    <v-main>
+      <v-container>
+        <router-view></router-view>
+      </v-container>
+    </v-main>
+  </v-app>
 </template>
 
 <script>
@@ -13,31 +37,3 @@ export default {
   }
 };
 </script>
-
-<style lang="scss">
-@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,700;1,400&display=swap");
-#app {
-  font-family: "Roboto", sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-
-button.tag-button {
-  background-color: #72c9a2;
-  border-radius: 5px;
-  padding: 5px;
-  border: 0;
-  outline: 0;
-  margin: 3px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: 0.2s;
-
-  &:hover {
-    opacity: 0.8;
-  }
-}
-</style>

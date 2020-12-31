@@ -1,4 +1,4 @@
-videos: [
+[
   {
     id: 1,
     name: "ES2015 Arrow Functions",
