@@ -28,7 +28,10 @@ export default new Vuex.Store({
         v.attributes.tag_ids = v.relationships.tags.data.map((t) => t.id);
       });
 
-      tags.forEach((t) => (t.attributes.id = t.id));
+      tags.forEach((t) => {
+        t.attributes.id = t.id;
+        t.attributes.video_ids = t.relationships.videos.data.map(v => v.id);
+      });
 
       commit(
         "SET_VIDEOS",
@@ -43,7 +46,7 @@ export default new Vuex.Store({
   modules: {},
   getters: {
     getTag: (state) => (id) => {
-      return state.tags.find((t) => (t.id == id));
+      return state.tags.find((t) => t.id == id);
     }
   }
 });

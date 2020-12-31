@@ -20,6 +20,11 @@ export default new VueRouter({
       path: "/video/:id",
       name: "video-watch",
       component: () => import("@/views/VideoWatch.vue")
+    },
+    {
+      path: "/tag/:id",
+      name: "tag",
+      component: () => import("@/views/TagVideoList.vue"),
     }
   ]
 });
