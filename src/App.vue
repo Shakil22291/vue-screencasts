@@ -12,7 +12,7 @@
         />
         <span>Vue screencasts</span>
       </v-btn>
-      <v-btn to="/video/create" text>Add video</v-btn>
+      <v-btn to="/admin/videos" text>Admin</v-btn>
 
       <v-spacer></v-spacer>
 

@@ -12,6 +12,11 @@ export default new VueRouter({
       component: () => import("@/views/Home.vue")
     },
     {
+      path: "/admin/videos",
+      name: "admin-videos",
+      component: () => import("@/views/AdminVideoList.vue")
+    },
+    {
       path: "/about",
       name: "about",
       component: () => import("@/views/About.vue")
