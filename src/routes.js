@@ -17,6 +17,11 @@ export default new VueRouter({
       component: () => import("@/views/About.vue")
     },
     {
+      path: "/video/create",
+      name: "video-create",
+      component: () => import("@/views/VideoCreate.vue")
+    },
+    {
       path: "/video/:id",
       name: "video-watch",
       component: () => import("@/views/VideoWatch.vue")

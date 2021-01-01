@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <v-app-bar app color="primary" dark>
-      <v-btn to="/" text>
+      <v-btn to="/" text class="mr-1">
         <v-img
           alt="Vuetify Logo"
           class="shrink mr-2"
@@ -12,6 +12,7 @@
         />
         <span>Vue screencasts</span>
       </v-btn>
+      <v-btn to="/video/create" text>Add video</v-btn>
 
       <v-spacer></v-spacer>
 
