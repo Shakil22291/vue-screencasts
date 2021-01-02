@@ -17,6 +17,11 @@ export default new VueRouter({
       component: () => import("@/views/AdminVideoList.vue")
     },
     {
+      path: "/admin/videos/:id/edit",
+      name: "admin-video-edit",
+      component: () => import("@/views/AdminVideoEdit.vue"),
+    },
+    {
       path: "/about",
       name: "about",
       component: () => import("@/views/About.vue")

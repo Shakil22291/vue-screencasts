@@ -32,7 +32,13 @@
             <td>
               <v-btn text @click="deleteVideo(video)">Delete</v-btn>
             </td>
-            <td><v-btn text>Edit</v-btn></td>
+            <td>
+              <v-btn
+                text
+                :to="{ name: 'admin-video-edit', params: { id: video.id } }"
+                >Edit</v-btn
+              >
+            </td>
           </tr>
         </tbody>
       </template>
