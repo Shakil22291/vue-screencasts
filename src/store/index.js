@@ -1,6 +1,10 @@
+import Axios from "axios";
 import Vue from "vue";
 import Vuex from "vuex";
 import Api from "../services/api";
+
+Axios.defaults.withCredentials = true;
+
 
 Vue.use(Vuex);
 
@@ -9,7 +13,8 @@ export default new Vuex.Store({
     videos: [],
     tags: [],
     playedVideos: [],
-    users: []
+    users: [],
+    currentUser: {}
   },
   mutations: {
     SET_VIDEOS(state, videos) {
@@ -44,6 +49,14 @@ export default new Vuex.Store({
           v = newVideo;
         }
       });
+    },
+    LOGOUT_USER(state) {
+      state.currentUser = {};
+      window.localStorage.currentUser = JSON.stringify({});
+    },
+    SET_CURRENT_USER(state, user) {
+      state.currentUser = user;
+      window.localStorage.currentUser = JSON.stringify(user);
     }
   },
   actions: {
@@ -104,6 +117,20 @@ export default new Vuex.Store({
         "SET_USERS",
         users.map((u) => u.attributes)
       );
+      let user = JSON.parse(window.localStorage.currentUser);
+      commit("SET_CURRENT_USER", user);
+    },
+    logoutUser({ commit }) {
+      commit("LOGOUT_USER");
+    },
+    async loginUser({ commit }, loginInfo) {
+      Axios.get("localhost:8000/sanctum/csrf-cookie").then((response) => {
+        console.log({response});
+      });
+      // await Axios.post("localhost:8000/login", loginInfo).then(res => console.log({res}))
+      // let response = await Api().post("/login", loginInfo);
+      // console.log(response);
+      commit("SET_CURRENT_USER", loginInfo);
     }
   },
 

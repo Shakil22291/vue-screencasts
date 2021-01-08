@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <div v-for="user in users" :key="user.id">
-      {{ user.name }}
+      {{ user.name }} <v-btn x-small @click="loginUser(user)">login</v-btn>
     </div>
   </v-container>
 </template>
@@ -14,6 +14,11 @@ export default {
   },
   mounted() {
     this.$store.dispatch("loadUsers");
+  },
+  methods: {
+    loginUser(user) {
+      this.$store.dispatch('loginUser', user);
+    }
   }
 };
 </script>
