@@ -1,11 +1,6 @@
-import Axios from "axios";
 import Vue from "vue";
 import Vuex from "vuex";
 import Api from "../services/api";
-
-Axios.defaults.withCredentials = true;
-
-
 Vue.use(Vuex);
 
 export default new Vuex.Store({
@@ -124,13 +119,12 @@ export default new Vuex.Store({
       commit("LOGOUT_USER");
     },
     async loginUser({ commit }, loginInfo) {
-      Axios.get("localhost:8000/sanctum/csrf-cookie").then((response) => {
-        console.log({response});
-      });
-      // await Axios.post("localhost:8000/login", loginInfo).then(res => console.log({res}))
-      // let response = await Api().post("/login", loginInfo);
-      // console.log(response);
-      commit("SET_CURRENT_USER", loginInfo);
+      await Api().get("/csrf-cookie");
+      await Api({baseURL: "http://localhost:8000/"}).post("/login", loginInfo);
+
+      let response = await Api().get('/user');
+      console.log(response.data);
+      commit("SET_CURRENT_USER", response.data);
     }
   },
 

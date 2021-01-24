@@ -24,7 +24,7 @@
           <v-icon>mdi-logout</v-icon>
         </v-btn>
       </div>
-      <v-btn text v-else>
+      <v-btn text v-else :to="{name: 'user-login'}">
         <span class="mr-2">Login</span>
         <v-icon>mdi-login</v-icon>
       </v-btn>

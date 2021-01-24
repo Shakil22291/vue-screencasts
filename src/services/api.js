@@ -1,12 +1,12 @@
 import Axios from "axios";
+Axios.defaults.withCredentials = true;
 
-export default () => {
+export default (options = { baseURL: "http://localhost:8000/api" }) => {
   return Axios.create({
-    baseURL: "http://127.0.0.1:8000/api",
-    withCredentials: false,
+    baseURL: options.baseURL,
     headers: {
       Accept: "application/json",
-      "Content-Type": "application/json"
-    }
+      "Content-Type": "application/json",
+    },
   });
 };
